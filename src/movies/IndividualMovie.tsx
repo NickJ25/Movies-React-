@@ -1,4 +1,4 @@
-import movieDTO from "./movies.model";
+import { movieDTO } from "./movies.model";
 import css from "./IndividualMovie.module.css";
 
 function IndividualMovie(props: movieDTO){

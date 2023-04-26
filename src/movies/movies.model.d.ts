@@ -1,8 +1,11 @@
-interface movieDTO {
+export interface movieDTO {
     id: number;
     title: string;
     poster: string;
 }
 
-export default movieDTO;
+export interface landingPageDTO {
+    inTheaters?: movieDTO[];
+    upcomingReleases?: movieDTO[];
+}
 
