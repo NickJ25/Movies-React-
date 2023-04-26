@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import IndividualMovie from "./movies/IndividualMovie";
 import MoviesList from "./movies/MoviesList";
-import  { movieDTO, landingPageDTO } from "./movies/movies.model";
+import  { landingPageDTO } from "./movies/movies.model";
 
 function App() {
   // Artifical loading
@@ -38,13 +38,13 @@ function App() {
   });
 
   return (
-    <>
+    <div className="container">
       <h3>In Theaters</h3>
       <MoviesList movies={movies.inTheaters}/>
 
       <h3>Upcoming Releases</h3>
       <MoviesList movies={movies.upcomingReleases}/>
-    </>
+    </div>
   );
 }
 
