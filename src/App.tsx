@@ -3,6 +3,9 @@ import "./App.css";
 import IndividualMovie from "./movies/IndividualMovie";
 import MoviesList from "./movies/MoviesList";
 import  { landingPageDTO } from "./movies/movies.model";
+import Menu from "./Menu";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import IndexGenres from "./genres/indexGenres";
 
 function App() {
   // Artifical loading
@@ -37,14 +40,27 @@ function App() {
     return () => clearTimeout(timerId);
   });
 
-  return (
-    <div className="container">
-      <h3>In Theaters</h3>
-      <MoviesList movies={movies.inTheaters}/>
+  const Main = () => {
+    return(
+      <>
+        <h3>In Theaters</h3>
+        <MoviesList movies={movies.inTheaters}/>
+        <h3>Upcoming Releases</h3>
+        <MoviesList movies={movies.upcomingReleases}/>
+      </>
+    );
+  }
 
-      <h3>Upcoming Releases</h3>
-      <MoviesList movies={movies.upcomingReleases}/>
-    </div>
+  return (
+    <BrowserRouter>
+      <Menu/>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={Main()}/>
+          <Route path="/genres" element={<IndexGenres/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
